@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Image, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 
 export default class App extends React.Component {
 
@@ -9,14 +9,12 @@ export default class App extends React.Component {
     weekday:getWeekday(),
     month:getMonth(),
     day:getDay(),
-    year:getYear(),
-    photo:getPhoto()
+    year:getYear()
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Image source={this.state.photo} style={{width: 150, height: 150}} />
         <Text style={styles.greet}>{this.state.greeting}</Text>
         <Text style={styles.greet}>It is {this.state.time} on</Text>
         <Text style={styles.greet}>{this.state.weekday}, {this.state.month} {this.state.day}, {this.state.year}.</Text>
@@ -129,34 +127,4 @@ export function getYear() {
   let date = new Date()
   let year = date.getFullYear()
   return year
-}
-
-export function getPhoto() {
-  let photoArray = [
-    'http://serenascalzi.photography/photos/01.jpg',
-    'http://serenascalzi.photography/photos/02.jpg',
-    'http://serenascalzi.photography/photos/03.jpg',
-    'http://serenascalzi.photography/photos/04.jpg',
-    'http://serenascalzi.photography/photos/05.jpg',
-    'http://serenascalzi.photography/photos/06.jpg',
-    'http://serenascalzi.photography/photos/07.jpg',
-    'http://serenascalzi.photography/photos/08.jpg',
-    'http://serenascalzi.photography/photos/09.jpg',
-    'http://serenascalzi.photography/photos/10.jpg',
-    'http://serenascalzi.photography/photos/11.jpg',
-    'http://serenascalzi.photography/photos/12.jpg',
-    'http://serenascalzi.photography/photos/13.jpg',
-    'http://serenascalzi.photography/photos/14.jpg',
-    'http://serenascalzi.photography/photos/15.jpg',
-    'http://serenascalzi.photography/photos/16.jpg',
-    'http://serenascalzi.photography/photos/17.jpg',
-    'http://serenascalzi.photography/photos/18.jpg'
-  ]
-  let photos = photoArray.sort(function(a,b) {
-    return 0.5 - Math.random()
-  })
-  let photo = {
-    uri: photos[0]
-  }
-  return photo
 }
